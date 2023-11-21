@@ -1,0 +1,117 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                         Trend Line GRID mt4 EA   |
+//|                                                   forexroboteasy.com|
+//|                                                   Forex Robot Easy Team|
+//+------------------------------------------------------------------+
+
+// Define inputs
+input bool AutoTrading = true; // Enable auto trading
+input bool CloseGrid = false; // Close the entire grid
+input bool ManualMode = false; // Enable manual mode
+input double TradeSize = 0.01; // Size of the trade
+
+// Define variables
+int totalOrders = 0; // Total number of orders
+int profitOrders = 0; // Number of profitable orders
+int lossOrders = 0; // Number of unprofitable orders
+
+//+------------------------------------------------------------------+
+//|                                   Expert initialization function|
+//+------------------------------------------------------------------+
+int OnInit()
+{
+   // Initialize the EA
+   // ...
+   return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//|                                   Expert start function           |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+   // Check if auto trading is enabled
+   if (AutoTrading)
+   {
+      // Check if the price deviates
+      if (PriceDeviation())
+      {
+         // Open the first order
+         OpenOrder();
+         
+         // Build a grid of orders
+         BuildGrid();
+      }
+   }
+   
+   // Check if manual mode is enabled
+   if (ManualMode)
+   {
+      // Accompany and resolve manual trades into profit
+      AccompanyManualTrades();
+   }
+   
+   // Check if the entire grid should be closed
+   if (CloseGrid)
+   {
+      CloseAllOrders();
+   }
+}
+
+//+------------------------------------------------------------------+
+//|                                   Function to check price deviation|
+//+------------------------------------------------------------------+
+bool PriceDeviation()
+{
+   // Check if the price deviates
+   // ...
+   return(true); // Replace with actual condition
+}
+
+//+------------------------------------------------------------------+
+//|                                   Function to open the first order|
+//+------------------------------------------------------------------+
+void OpenOrder()
+{
+   // Open the first order
+   // ...
+}
+
+//+------------------------------------------------------------------+
+//|                                   Function to build a grid of orders|
+//+------------------------------------------------------------------+
+void BuildGrid()
+{
+   // Build a grid of orders
+   // ...
+}
+
+//+------------------------------------------------------------------+
+//|                                   Function to close unprofitable orders|
+//+------------------------------------------------------------------+
+void CloseUnprofitableOrders()
+{
+   // Close unprofitable orders
+   // ...
+}
+
+//+------------------------------------------------------------------+
+//|                                   Function to accompany and resolve manual trades|
+//+------------------------------------------------------------------+
+void AccompanyManualTrades()
+{
+   // Accompany and resolve manual trades
+   // ...
+}
+
+//+------------------------------------------------------------------+
+//|                                   Function to close all orders     |
+//+------------------------------------------------------------------+
+void CloseAllOrders()
+{
+   // Close all orders
+   // ...
+}
+
+//+------------------------------------------------------------------+
